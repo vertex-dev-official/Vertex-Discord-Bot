@@ -22,7 +22,9 @@ client.xpCooldowns = new Collection();
 
 loadCommands(client);
 loadEvents(client);
-initPlayer(client).then(() => console.log("[player] discord-player initialise."));
+initPlayer(client)
+  .then(() => console.log("[player] discord-player initialise."))
+  .catch((err) => console.error("[player] Initialisation echouee (le reste du bot continue de fonctionner).", err));
 
 process.on("unhandledRejection", (err) => console.error("[unhandledRejection]", err));
 process.on("uncaughtException", (err) => console.error("[uncaughtException]", err));
