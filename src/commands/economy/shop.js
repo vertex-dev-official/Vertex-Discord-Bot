@@ -21,7 +21,6 @@ module.exports = {
         .addIntegerOption((o) => o.setName("prix").setDescription("Prix").setRequired(true).setMinValue(1))
         .addStringOption((o) => o.setName("description").setDescription("Description").setRequired(false))
         .addRoleOption((o) => o.setName("role").setDescription("Role donne a l'achat").setRequired(false))
-        .setDefaultMemberPermissions(PermissionFlagsBits.ManageGuild)
     ),
 
   async autocomplete(interaction) {
@@ -36,6 +35,10 @@ module.exports = {
     const guildConfig = await getGuildConfig(interaction.guild.id, interaction.guild.name);
 
     if (sub === "ajouter") {
+      if (!interaction.memberPermissions.has(PermissionFlagsBits.ManageGuild)) {
+        return interaction.reply({ embeds: [errorEmbed("Il te faut la permission \"Gerer le serveur\" pour ajouter un article.")], ephemeral: true });
+      }
+
       const item = await prisma.shopItem.create({
         data: {
           guildId: interaction.guild.id,
