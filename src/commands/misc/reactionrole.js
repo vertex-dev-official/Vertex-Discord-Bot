@@ -12,10 +12,10 @@ module.exports = {
         .setName("creer")
         .setDescription("Cree un message de roles-reaction (ou en ajoute a un message existant)")
         .addChannelOption((o) => o.setName("salon").setDescription("Salon du message").addChannelTypes(ChannelType.GuildText).setRequired(true))
-        .addStringOption((o) => o.setName("message-id").setDescription("ID d'un message existant, laisser vide pour en creer un").setRequired(false))
-        .addStringOption((o) => o.setName("titre").setDescription("Titre si nouveau message").setRequired(false))
         .addStringOption((o) => o.setName("emoji").setDescription("Emoji a utiliser").setRequired(true))
         .addRoleOption((o) => o.setName("role").setDescription("Role a donner").setRequired(true))
+        .addStringOption((o) => o.setName("message-id").setDescription("ID d'un message existant, laisser vide pour en creer un").setRequired(false))
+        .addStringOption((o) => o.setName("titre").setDescription("Titre si nouveau message").setRequired(false))
     ),
 
   async execute(interaction) {

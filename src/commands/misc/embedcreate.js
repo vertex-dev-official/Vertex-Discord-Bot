@@ -62,13 +62,19 @@ module.exports = {
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages)
     .addSubcommand((s) =>
       embedCommonOptions(
-        s.setName("envoyer").setDescription("Cree et envoie un embed directement")
-      ).addChannelOption((o) => o.setName("salon").setDescription("Salon de destination").addChannelTypes(ChannelType.GuildText).setRequired(true))
+        s
+          .setName("envoyer")
+          .setDescription("Cree et envoie un embed directement")
+          .addChannelOption((o) => o.setName("salon").setDescription("Salon de destination").addChannelTypes(ChannelType.GuildText).setRequired(true))
+      )
     )
     .addSubcommand((s) =>
       embedCommonOptions(
-        s.setName("sauvegarder").setDescription("Sauvegarde un embed reutilisable, modifiable ensuite depuis le panel web")
-      ).addStringOption((o) => o.setName("nom").setDescription("Nom unique pour le retrouver").setRequired(true))
+        s
+          .setName("sauvegarder")
+          .setDescription("Sauvegarde un embed reutilisable, modifiable ensuite depuis le panel web")
+          .addStringOption((o) => o.setName("nom").setDescription("Nom unique pour le retrouver").setRequired(true))
+      )
     )
     .addSubcommand((s) =>
       s

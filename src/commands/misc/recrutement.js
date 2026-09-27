@@ -24,11 +24,11 @@ module.exports = {
         .setDescription("Cree un formulaire de candidature (jusqu'a 5 questions)")
         .addStringOption((o) => o.setName("nom").setDescription("Nom unique du formulaire, ex: moderateur").setRequired(true))
         .addStringOption((o) => o.setName("question1").setDescription("Question 1").setRequired(true))
+        .addChannelOption((o) => o.setName("salon-resultats").setDescription("Salon ou les candidatures sont envoyees").addChannelTypes(ChannelType.GuildText).setRequired(true))
         .addStringOption((o) => o.setName("question2").setDescription("Question 2").setRequired(false))
         .addStringOption((o) => o.setName("question3").setDescription("Question 3").setRequired(false))
         .addStringOption((o) => o.setName("question4").setDescription("Question 4").setRequired(false))
         .addStringOption((o) => o.setName("question5").setDescription("Question 5").setRequired(false))
-        .addChannelOption((o) => o.setName("salon-resultats").setDescription("Salon ou les candidatures sont envoyees").addChannelTypes(ChannelType.GuildText).setRequired(true))
         .addRoleOption((o) => o.setName("role-acceptation").setDescription("Role donne automatiquement si accepte").setRequired(false))
     )
     .addSubcommand((s) =>
